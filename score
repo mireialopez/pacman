@@ -1,0 +1,69 @@
+//int[][] P=new int[9][13];
+int [] [] P= {    {1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                  {1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+                  
+float inicio1=0.0;
+float fin1=PI*2;
+float inicio2=0.63;
+float fin2=5.61;
+float temp=0.0;
+int x=330;
+int y=150;
+int j = 0;
+int i = 0;
+int contador = 0;
+void setup() {
+  size(840,600);
+  strokeWeight (3);
+  smooth ();
+  frameRate(7);
+                  
+  for (i=0; i < 9; i++) {
+  for (j=0; j < 13; j++) {
+   println( P[i][j]);
+   fill(255);
+ 
+  }} 
+  }
+  
+  void draw() {
+    background(0);
+textSize(20);
+text("Score "+contador,690,30);
+    noStroke();
+ fill(225,246,8);
+ arc (x,y, 50, 50, inicio1, fin1);
+ fill(0);
+ ellipse(x-9,y-9,10,10);
+ temp=inicio1;
+ inicio1=inicio2;
+ inicio2=temp;
+ temp=fin1;
+ fin1=fin2;
+ fin2=temp;
+ fill(255);
+     for (i = 0; i < 10; i++) {
+     for (j = 0; j < 14; j++) {
+     //println( P[i][j]);
+     
+  stroke(255); 
+        if(P[i][j]==1 && y==30+i*60 && x==30+j*60) {
+        contador=contador+1; }
+    if (y==30+i*60 && x==30+j*60){
+     P[i][j]=1;
+     P[i][j]=0;
+     println(P[i][j]);}
+    if (P[i][j]==1){
+      ellipse(30+j*60, 30+i*60, 5, 5);
+
+    }
+} 
+} 
